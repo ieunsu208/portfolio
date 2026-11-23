@@ -8,10 +8,10 @@ const topbarToggle = document.querySelector(".profile__topbar-toggle");
 const navLinks = [...document.querySelectorAll(".profile__nav a")];
 
 const THUMBNAIL_HEIGHT = 950;
-const PROFILE_HEIGHT = 1069;
+const PROFILE_HEIGHT = 1050;
 const COMPOSITION_HEIGHT = 2017;
 const COMPOSITION_START = THUMBNAIL_HEIGHT + PROFILE_HEIGHT;
-const TOPBAR_TOP = 40;
+const TOPBAR_TOP = 50;
 
 for (const skill of document.querySelectorAll(".profile__skill")) {
   const score = Number(skill.dataset.score);
