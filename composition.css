@@ -1,0 +1,41 @@
+#composition {
+  z-index: 3;
+  height: 2017px;
+  background: #fff;
+  transform: translate3d(0, 2019px, 0);
+  will-change: transform;
+}
+
+.composition {
+  position: relative;
+  width: 1920px;
+  height: 2017px;
+  overflow: hidden;
+  background: #fff;
+  color: #374878;
+  font-family: "Paperlogy", sans-serif;
+  letter-spacing: -0.02em;
+}
+
+.composition__heading {
+  position: absolute;
+  top: 99px;
+  left: 100px;
+  margin: 0;
+  font: 600 38px / 1.4 "Paperlogy", sans-serif;
+}
+
+.composition__project {
+  position: absolute;
+  left: 100px;
+  display: block;
+  width: 1754px;
+  height: 813px;
+  max-width: none;
+  object-fit: cover;
+  pointer-events: none;
+  user-select: none;
+}
+
+.composition__project--mildo { top: 211px; }
+.composition__project--ohora { top: 1054px; }

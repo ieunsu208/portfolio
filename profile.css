@@ -1,0 +1,139 @@
+@font-face {
+  font-family: "Paperlogy";
+  src: url("./fonts/paperlogy-400.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Paperlogy";
+  src: url("./fonts/paperlogy-500.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Paperlogy";
+  src: url("./fonts/paperlogy-600.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Paperlogy";
+  src: url("./fonts/paperlogy-700.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Cormorant Infant";
+  src: url("./fonts/cormorant-infant-700-italic.woff2") format("woff2");
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+}
+
+html { width: 100%; height: 100%; overflow-x: auto; overflow-y: hidden; scrollbar-width: none; }
+html::-webkit-scrollbar { display: none; }
+body { width: 1920px; height: 100svh; min-height: 100svh; overflow: visible; }
+.page { position: relative; width: 1920px; height: 100svh; overflow: hidden; touch-action: pan-x; user-select: none; }
+.slide { position: absolute; left: 0; top: 0; width: 1920px; overflow: hidden; }
+#thumbnail { z-index: 1; height: 950px; background: #f4f5f2; }
+#about-me {
+  z-index: 2;
+  height: 1069px;
+  background: #c0e8ff;
+  transform: translate3d(0, 950px, 0);
+  will-change: transform;
+}
+
+.profile {
+  position: relative;
+  width: 1920px;
+  aspect-ratio: 1920 / 1069;
+  overflow: hidden;
+  isolation: isolate;
+  background: #c0e8ff;
+}
+.profile__canvas {
+  position: absolute;
+  inset: 0 auto auto 0;
+  width: 1920px;
+  height: 1069px;
+  transform-origin: top left;
+  color: #374878;
+  font-family: "Paperlogy", sans-serif;
+  letter-spacing: -0.02em;
+}
+.profile__canvas img { position: absolute; display: block; max-width: none; pointer-events: none; user-select: none; }
+.profile__paper { left: 526px; top: 0; width: 1394px; height: 1069px; }
+.profile__photo { position: absolute; left: 97px; top: 230px; width: 403px; height: 494px; background: #f4f4f4; }
+.profile__flower-green { left: 0; top: 141px; width: 216px; height: 222px; }
+.profile__star { left: 435px; top: 659px; width: 162px; height: 143px; }
+.profile__topbar { position: absolute; z-index: 10; right: 40px; top: 990px; width: 819px; height: 109px; }
+.profile__topbar-toggle { position: absolute; left: 699px; top: 0; width: 120px; height: 109px; padding: 0; border: 0; background: transparent; cursor: pointer; }
+.profile__topbar-toggle:focus-visible { outline: 3px solid #ee5144; outline-offset: 3px; border-radius: 22px; }
+.profile__flower-blue { position: absolute; display: block; left: 0; top: 0; width: 120px; height: 109px; pointer-events: none; user-select: none; }
+.profile__identity { position: absolute; left: 97px; top: 749px; }
+.profile__names { display: flex; align-items: baseline; gap: 24px; white-space: nowrap; }
+.profile__names h2 { margin: 0; font-size: 38px; line-height: 1.4; font-weight: 600; }
+.profile__names span { font-size: 20px; line-height: 1.4; font-weight: 500; }
+.profile__contact { margin: 24px 0 0; display: grid; gap: 13px; }
+.profile__contact div { display: grid; grid-template-columns: 120px auto; align-items: center; }
+.profile__contact dt, .profile__contact dd { margin: 0; font-size: 24px; line-height: 1.5; font-weight: 500; }
+.profile__contact dt { color: #7383a0; }
+
+.profile__details { position: absolute; left: 741px; top: 229px; width: 1072px; }
+.profile__detail { position: absolute; left: 0; width: 100%; display: grid; grid-template-columns: 258px 1fr; }
+.profile__detail--education { top: 0; }
+.profile__detail--certification { top: 225px; }
+.profile__detail--skills { top: 448px; }
+.profile__detail h3 {
+  margin: 0;
+  color: #ee5144;
+  font: italic 700 40px / 1.4 "Cormorant Infant", serif;
+  letter-spacing: -0.02em;
+}
+.profile__entries { display: grid; gap: 1px; }
+.profile__entries > div { display: grid; grid-template-columns: 340px 1fr; align-items: center; min-height: 41px; white-space: nowrap; }
+.profile__entries time { color: #737373; font-size: 23px; line-height: 1.55; font-weight: 400; }
+.profile__entries span { font-size: 23px; line-height: 1.55; font-weight: 500; }
+
+.profile__skills { display: grid; grid-template-columns: 340px 1fr; column-gap: 111px; transform: translateY(-10px); }
+.profile__skill-column { display: grid; gap: 5px; align-content: start; }
+.profile__skill { display: grid; grid-template-columns: 173px 169px; align-items: center; min-height: 55px; white-space: nowrap; font-size: 24px; font-weight: 500; }
+.profile__skill-column:last-child .profile__skill { grid-template-columns: 194px 169px; }
+.profile__meter { position: relative; display: flex; justify-content: space-between; align-items: center; width: 169px; height: 14px; }
+.profile__meter::before { content: ""; position: absolute; z-index: 0; left: 0; right: 0; top: 6px; height: 2px; background: #d9d9d9; }
+.profile__meter::after { content: ""; position: absolute; z-index: 0; left: 0; top: 6px; height: 2px; width: var(--fill); background: #ee5144; }
+.profile__meter i { position: relative; z-index: 1; width: 9px; height: 9px; border-radius: 50%; background: #ee5144; }
+.profile__skill[data-score="3"] .profile__meter i:nth-child(n + 4),
+.profile__skill[data-score="4"] .profile__meter i:nth-child(n + 5) { background: #d9d9d9; }
+
+.profile__nav {
+  position: absolute;
+  left: 0;
+  top: 15px;
+  width: 659px;
+  height: 80px;
+  display: block;
+  text-align: center;
+  border-radius: 99px;
+  background: #fff;
+  font-size: 20px;
+  font-weight: 600;
+  clip-path: inset(0 0 0 0 round 99px);
+  transition: clip-path 480ms ease-in-out;
+}
+.profile__nav.is-collapsed { clip-path: inset(0 0 0 100% round 99px); pointer-events: none; }
+.profile__nav a { position: absolute; top: 12px; display: grid; place-items: center; height: 57px; color: #374878; text-decoration: none; white-space: nowrap; }
+.profile__nav a:first-child { left: 50px; width: 102px; }
+.profile__nav a:nth-child(2) { left: 230px; width: 163px; }
+.profile__nav a:last-child { left: 468px; width: 142px; }
+.profile__nav a[aria-current="page"] { border-radius: 99px; color: #fff; background: #374878; font-weight: 700; }
+.profile__nav a:focus-visible { outline: 3px solid #ee5144; outline-offset: 3px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .profile__nav { transition-duration: 0ms; }
+}

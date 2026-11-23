@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f4f5f2" />
+    <title>이은수 | Portfolio</title>
+    <link rel="preload" href="./fonts/bricolage-grotesque-800.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="./fonts/fraunces-300-italic.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="./fonts/paperlogy-500.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="./fonts/cormorant-infant-700-italic.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./profile.css?v=2" />
+    <link rel="stylesheet" href="./composition.css" />
+  </head>
+  <body>
+    <main class="page">
+      <section class="slide" id="thumbnail" aria-label="포트폴리오 썸네일">
+        <div class="thumbnail">
+          <div class="thumbnail__canvas" id="thumbnail-canvas">
+            <img class="art art--background" src="./assets/checkerboard.png" alt="" />
+            <img class="art art--torn-paper" src="./assets/torn-paper.png" alt="" />
+            <img class="art art--grid-paper" src="./assets/grid-paper.png" alt="" />
+            <h1 class="title" aria-label="Portfolio">
+              <span class="title__port" aria-hidden="true">Port</span>
+              <span class="title__folio" aria-hidden="true">folio</span>
+            </h1>
+            <img class="art art--apple" src="./assets/apple.png" alt="" />
+            <img class="art art--star" src="./assets/star.png" alt="" />
+            <img class="art art--clover" src="./assets/clover.png" alt="" />
+            <img class="art art--blue-grid-tape" src="./assets/blue-grid-tape.png" alt="" />
+            <img class="art art--cyan-tape" src="./assets/cyan-tape.png" alt="" />
+            <img class="art art--polka-dot-tape" src="./assets/polka-dot-tape.png" alt="" />
+            <img class="art art--purple-button" src="./assets/purple-button.png" alt="" />
+            <img class="art art--green-button" src="./assets/green-button.png" alt="" />
+            <div class="arrow-group" aria-hidden="true">
+              <img class="art art--arrow" src="./assets/arrow.png" alt="" />
+              <img class="art art--accent-rays" src="./assets/accent-rays.png" alt="" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide" id="about-me" aria-label="개인 정보">
+        <div class="profile">
+          <div class="profile__canvas" id="profile-canvas">
+            <img class="profile__paper" src="./assets/profile-paper.png" alt="" />
+            <div class="profile__photo" aria-label="프로필 사진 자리"></div>
+            <div class="profile__identity">
+              <div class="profile__names"><h2>이은수</h2><span>Lee Eun Su</span></div>
+              <dl class="profile__contact">
+                <div><dt>Birth</dt><dd>2002.08.08</dd></div>
+                <div><dt>E-mail</dt><dd>ieunsu0808@gmail.com</dd></div>
+                <div><dt>Mobile</dt><dd>010-7244-0217</dd></div>
+              </dl>
+            </div>
+            <div class="profile__details">
+              <section class="profile__detail profile__detail--education" aria-labelledby="education-title">
+                <h3 id="education-title">Education</h3>
+                <div class="profile__entries">
+                  <div><time>2022.02</time><span>신일여자고등학교</span></div>
+                  <div><time>2026.02</time><span>목원대학교 산업디자인과</span></div>
+                  <div><time>2026.12</time><span>AI 기반 UIUX 웹디자인 &amp; 웹퍼블리셔 양성과정</span></div>
+                </div>
+              </section>
+              <section class="profile__detail profile__detail--certification" aria-labelledby="certification-title">
+                <h3 id="certification-title">Cerification</h3>
+                <div class="profile__entries">
+                  <div><time>2026.11</time><span>웹디자인 개발 기능사</span></div>
+                  <div><time>2025.11</time><span>GTQ 그래픽 기술 자격 1급</span></div>
+                  <div><time>2025.01</time><span>보통 2종 운전면허증</span></div>
+                </div>
+              </section>
+              <section class="profile__detail profile__detail--skills" aria-labelledby="skill-title">
+                <h3 id="skill-title">Skill</h3>
+                <div class="profile__skills">
+                  <div class="profile__skill-column">
+                    <div class="profile__skill" data-score="5"><span>피그마</span></div>
+                    <div class="profile__skill" data-score="4"><span>포토샵</span></div>
+                    <div class="profile__skill" data-score="4"><span>일러스트</span></div>
+                    <div class="profile__skill" data-score="4"><span>노션</span></div>
+                    <div class="profile__skill" data-score="4"><span>AI</span></div>
+                  </div>
+                  <div class="profile__skill-column">
+                    <div class="profile__skill" data-score="4"><span>HTML/CSS/JS</span></div>
+                    <div class="profile__skill" data-score="4"><span>Codex</span></div>
+                    <div class="profile__skill" data-score="3"><span>라이노</span></div>
+                    <div class="profile__skill" data-score="3"><span>키샷</span></div>
+                  </div>
+                </div>
+              </section>
+            </div>
+            <img class="profile__flower-green" src="./assets/profile-flower-green.png" alt="" />
+            <img class="profile__star" src="./assets/profile-star.png" alt="" />
+          </div>
+        </div>
+      </section>
+
+      <section class="slide" id="composition" aria-label="포트폴리오 구성">
+        <div class="composition">
+          <h2 class="composition__heading">포트폴리오</h2>
+          <img class="composition__project composition__project--mildo" src="./assets/portfolio-mildo-revised.png" alt="밀도 향수 프로젝트" />
+          <img class="composition__project composition__project--ohora" src="./assets/portfolio-ohora-revised.png" alt="ohora 화장품 프로젝트" />
+        </div>
+      </section>
+
+      <div class="profile__topbar">
+        <nav class="profile__nav" id="portfolio-menu" aria-label="포트폴리오 페이지">
+          <a href="#thumbnail">표지</a>
+          <a href="#about-me" aria-current="page">about me</a>
+          <a href="#composition">contents</a>
+        </nav>
+        <button class="profile__topbar-toggle" type="button" aria-controls="portfolio-menu" aria-expanded="true" aria-label="메뉴 숨기기">
+          <img class="profile__flower-blue" src="./assets/profile-flower-blue.png" alt="" />
+        </button>
+      </div>
+    </main>
+    <script src="./script.js"></script>
+  </body>
+</html>

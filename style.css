@@ -1,0 +1,114 @@
+@font-face {
+  font-family: "Bricolage Grotesque";
+  src: url("./fonts/bricolage-grotesque-800.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Fraunces";
+  src: url("./fonts/fraunces-300-italic.woff2") format("woff2");
+  font-style: italic;
+  font-weight: 300;
+  font-display: swap;
+}
+
+* { box-sizing: border-box; }
+
+html, body { margin: 0; min-height: 100%; }
+
+body { background: #f4f5f2; }
+
+.page {
+  min-height: 100svh;
+  display: grid;
+  place-items: center;
+}
+
+.thumbnail {
+  position: relative;
+  width: 1920px;
+  aspect-ratio: 1920 / 950;
+  overflow: hidden;
+  isolation: isolate;
+  background: #f4f5f2;
+}
+
+.thumbnail__canvas {
+  position: absolute;
+  inset: 0 auto auto 0;
+  width: 1920px;
+  height: 950px;
+  transform-origin: top left;
+}
+
+.art {
+  position: absolute;
+  display: block;
+  max-width: none;
+  user-select: none;
+  pointer-events: none;
+}
+
+.art--background { left: 0; top: 0; width: 1920px; height: 950px; }
+.art--torn-paper { left: 269px; top: -12px; width: 1275px; height: 861px; }
+.art--grid-paper { left: 336px; top: 166px; width: 1249px; height: 507px; }
+
+.title {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  color: #ee5144;
+  font-synthesis: none;
+  pointer-events: none;
+}
+
+.title span { position: absolute; display: block; white-space: nowrap; }
+
+.title__port {
+  left: 444px;
+  top: 217px;
+  font: 800 256px / 1.4 "Bricolage Grotesque", sans-serif;
+  letter-spacing: -0.02em;
+}
+
+.title__folio {
+  left: 925px;
+  top: 217px;
+  font: italic 300 326px / 1.4 "Fraunces", serif;
+  letter-spacing: -0.02em;
+  transform: scaleX(0.785);
+  transform-origin: left top;
+}
+
+.art--apple { left: 1352px; top: 460px; width: 410px; height: 411px; }
+.art--star { left: 145px; top: 426px; width: 299px; height: 298px; }
+.art--clover { left: 272px; top: 563px; width: 234px; height: 258px; }
+.art--blue-grid-tape { left: 580px; top: 575px; width: 329px; height: 178px; }
+.art--cyan-tape { left: 251px; top: 130px; width: 324px; height: 266px; }
+.art--polka-dot-tape { left: 607px; top: 559px; width: 331px; height: 172px; }
+.art--purple-button { left: 1373px; top: 26px; width: 264px; height: 243px; }
+.art--green-button { left: 1570px; top: 214px; width: 117px; height: 109px; }
+
+.arrow-group {
+  position: absolute;
+  left: 841px;
+  top: 660px;
+  width: 237px;
+  height: 290px;
+  pointer-events: none;
+  animation: arrow-bob 1s ease-in-out 5;
+}
+
+.art--arrow { left: 1px; top: 107px; width: 172px; height: 183px; }
+.art--accent-rays { left: 83px; top: 54px; width: 155px; height: 165px; }
+
+@keyframes arrow-bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .arrow-group { animation: none; }
+}
