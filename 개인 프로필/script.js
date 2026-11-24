@@ -5,13 +5,14 @@ const compositionSlide = document.querySelector("#composition");
 const topbar = document.querySelector(".profile__topbar");
 const portfolioMenu = document.querySelector("#portfolio-menu");
 const topbarToggle = document.querySelector(".profile__topbar-toggle");
+const topbarFlower = topbarToggle.querySelector(".profile__flower-blue");
 const navLinks = [...document.querySelectorAll(".profile__nav a")];
 
 const THUMBNAIL_HEIGHT = 950;
 const PROFILE_HEIGHT = 1050;
 const COMPOSITION_HEIGHT = 2017;
 const COMPOSITION_START = THUMBNAIL_HEIGHT + PROFILE_HEIGHT;
-const TOPBAR_TOP = 50;
+const TOPBAR_TOP = 40;
 
 for (const skill of document.querySelectorAll(".profile__skill")) {
   const score = Number(skill.dataset.score);
@@ -114,6 +115,14 @@ for (const link of navLinks) {
 }
 
 topbarToggle.addEventListener("click", () => {
+  topbarFlower.getAnimations().forEach(animation => animation.cancel());
+  if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    topbarFlower.animate(
+      [{ transform: "rotate(0deg)" }, { transform: "rotate(360deg)" }],
+      { duration: 650, easing: "ease-in-out" },
+    );
+  }
+
   const collapsed = portfolioMenu.classList.toggle("is-collapsed");
   portfolioMenu.inert = collapsed;
   portfolioMenu.setAttribute("aria-hidden", String(collapsed));

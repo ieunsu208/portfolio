@@ -30,6 +30,54 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: "Nanum Myeongjo";
+  src: url("./fonts/nanum-myeongjo-regular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Nanum Myeongjo";
+  src: url("./fonts/nanum-myeongjo-bold.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Pretendard";
+  src: url("./fonts/pretendard-regular.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Pretendard";
+  src: url("./fonts/pretendard-medium.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Pretendard";
+  src: url("./fonts/pretendard-semibold.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Pretendard";
+  src: url("./fonts/pretendard-bold.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+
 * { box-sizing: border-box; }
 
 html { scroll-behavior: smooth; }
@@ -138,9 +186,721 @@ body { margin: 0; background: #080a09; }
   text-align: center;
 }
 
+.story {
+  background: #1e2229;
+  color: #fff;
+  overflow: hidden;
+}
+
+.story__canvas {
+  position: relative;
+  width: min(100%, 1920px);
+  aspect-ratio: 1920 / 2272;
+  margin: 0 auto;
+  isolation: isolate;
+  background: #1e2229;
+}
+
+.story__brush {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  mix-blend-mode: multiply;
+  opacity: .45;
+  pointer-events: none;
+}
+
+.story__intro,
+.story__detail { position: absolute; left: 7.2917%; }
+
+.story__intro {
+  top: 10.8715%;
+  width: 32.1875%;
+}
+
+.story__intro h2 {
+  margin: 0;
+  font: 700 clamp(24px, 2.2917vw, 44px) / 1.36364 "Nanum Myeongjo", "Bookk Myungjo", serif;
+  letter-spacing: .04em;
+  white-space: nowrap;
+}
+
+.story__intro p {
+  margin: 121px 0 0;
+  font: 500 clamp(12px, .9375vw, 18px) / 1.8 "Pretendard", Arial, sans-serif;
+}
+
+.story__photo {
+  position: absolute;
+  display: block;
+  object-fit: cover;
+}
+
+.story__photo--top {
+  top: 2.6849%;
+  left: 53.75%;
+  width: 38.9583%;
+  height: 38.3803%;
+}
+
+.story__photo--middle {
+  top: 42.3856%;
+  left: 71.875%;
+  width: 20.8333%;
+  height: 23.3275%;
+}
+
+.story__photo--bottom {
+  top: 60.3433%;
+  left: 43.125%;
+  width: 27.1875%;
+  height: 32.8345%;
+}
+
+.story__detail {
+  top: 46.3468%;
+  width: 26.875%;
+}
+
+.story__detail h3 {
+  margin: 0 0 10px;
+  font: 600 clamp(15px, 1.1458vw, 22px) / 1.2 "Pretendard", Arial, sans-serif;
+  letter-spacing: .04em;
+  white-space: nowrap;
+}
+
+.story__detail p {
+  margin: 0;
+  font: 500 clamp(12px, .9375vw, 18px) / 26px "Pretendard", Arial, sans-serif;
+  letter-spacing: -.02em;
+  white-space: nowrap;
+}
+
+.process {
+  overflow: hidden;
+  background: #f3f1ee;
+  color: #222b20;
+}
+
+.process__canvas {
+  position: relative;
+  isolation: isolate;
+  width: min(100%, 1920px);
+  aspect-ratio: 1920 / 3634;
+  margin: 0 auto;
+}
+
+.process__background {
+  position: absolute;
+  z-index: -1;
+  left: 0;
+  width: 100%;
+  height: auto;
+  pointer-events: none;
+}
+
+.process__background--top { top: 0; }
+.process__background--bottom { top: 70.3632%; }
+
+.process__intro,
+.process__photo,
+.process__text { position: absolute; }
+
+.process__intro {
+  top: 4.4304%;
+  left: 7.2917%;
+  width: 37.1875%;
+}
+
+.process__intro h2 {
+  margin: 0;
+  font: 400 clamp(24px, 2.2917vw, 44px) / 55px "Nanum Myeongjo", "Bookk Myungjo", serif;
+  letter-spacing: .04em;
+  white-space: nowrap;
+}
+
+.process__intro h2 strong { font-weight: 700; }
+
+.process__intro p {
+  width: 100%;
+  margin: 8px 0 0;
+  font: 500 clamp(11px, .7292vw, 14px) / 1.8 "Pretendard", Arial, sans-serif;
+  letter-spacing: -.02em;
+  white-space: nowrap;
+}
+
+.process__photo { display: block; height: auto; }
+.process__photo--natural { top: 16.7584%; left: 7.2917%; width: 24.5313%; }
+.process__photo--extraction { top: 41.9097%; left: 59.4271%; width: 24.4271%; }
+.process__photo--aging { top: 67.0336%; left: 7.2917%; width: 24.5313%; }
+
+.process__text { width: 18.2292%; }
+.process__text--natural { top: 30.4623%; left: 33.9063%; }
+.process__text--extraction { top: 56.6868%; left: 39.1146%; text-align: right; }
+.process__text--aging { top: 82.3060%; left: 33.9063%; }
+
+.process__text h3 {
+  margin: 0 0 30px;
+  font: 700 clamp(14px, .9375vw, 18px) / 21px "Pretendard", Arial, sans-serif;
+}
+
+.process__text p {
+  margin: 0;
+  font: 500 clamp(11px, .7292vw, 14px) / 1.8 "Pretendard", Arial, sans-serif;
+}
+
+.scent-system {
+  overflow: hidden;
+  background: #1e2229;
+  color: #e9e6e0;
+}
+
+.scent-system__canvas {
+  position: relative;
+  isolation: isolate;
+  width: min(100%, 1920px);
+  aspect-ratio: 1920 / 1101;
+  margin: 0 auto;
+}
+
+.scent-system__artwork {
+  position: absolute;
+  z-index: -1;
+  top: 2.9973%;
+  left: 0;
+  width: 100%;
+  height: auto;
+  pointer-events: none;
+}
+
+.scent-system__intro {
+  position: absolute;
+  top: 11.1717%;
+  left: 29.1146%;
+  width: 41.7708%;
+  text-align: center;
+}
+
+.scent-system__intro h2 {
+  margin: 0;
+  font: 300 clamp(18px, 1.5625vw, 30px) / 34px "Bookk Myungjo", Georgia, serif;
+  letter-spacing: .02em;
+  white-space: nowrap;
+}
+
+.scent-system__intro h2 strong {
+  font-weight: 700;
+  font-size: clamp(21px, 1.7708vw, 34px);
+}
+
+.scent-system__intro p {
+  width: 75.8105%;
+  margin: 24px auto 0;
+  color: #bfbdb8;
+  font: 400 clamp(10px, .7292vw, 14px) / 1.4 "Pretendard", Arial, sans-serif;
+  letter-spacing: -.02em;
+  white-space: nowrap;
+}
+
+.scent-system__gallery {
+  position: absolute;
+  top: 26.9755%;
+  left: 14.4792%;
+  width: 71.0417%;
+  aspect-ratio: 1364 / 714;
+}
+
+.scent-system__cards {
+  display: grid;
+  grid-template-columns: 1183fr 87fr 94fr;
+  width: 100%;
+  height: 85.8543%;
+  overflow: hidden;
+}
+
+.scent-system__card {
+  display: grid;
+  grid-template-columns: 427fr 756fr;
+  min-width: 0;
+  margin: 0;
+  overflow: hidden;
+  background: #e9e6e0;
+}
+
+.scent-system__card-copy { position: relative; min-width: 0; }
+
+.scent-system__card-index {
+  position: absolute;
+  top: 4.894%;
+  left: 7.0258%;
+  margin: 0;
+  color: #b6b2a7;
+  font: 400 clamp(9px, .7292vw, 14px) / 1.1 "Pretendard", Arial, sans-serif;
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  white-space: nowrap;
+  word-spacing: -1em;
+}
+
+.scent-system__card-columns {
+  position: absolute;
+  top: 12.8874%;
+  left: 36.2998%;
+  width: 25.2927%;
+  height: 61.664%;
+}
+
+.scent-system__card-columns > * {
+  position: absolute;
+  top: 0;
+  margin: 0;
+  white-space: nowrap;
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  word-spacing: -1em;
+}
+
+.scent-system__card-columns h3 {
+  left: 0;
+  color: #303007;
+  font: 600 clamp(12px, 1.0417vw, 20px) / 1.1 "Pretendard", Arial, sans-serif;
+  letter-spacing: 0;
+}
+
+.scent-system__card-tagline {
+  left: 24.0741%;
+  color: #a09a85;
+  font: 500 clamp(8px, .625vw, 12px) / 1.2 "Pretendard", Arial, sans-serif;
+}
+
+.scent-system__card-description,
+.scent-system__card-use {
+  color: #293311;
+  font: 500 clamp(10px, .8333vw, 16px) / 1.1 "Pretendard", Arial, sans-serif;
+  letter-spacing: .04em;
+  word-spacing: -1.05em;
+}
+
+.scent-system__card-description { left: 63.8889%; }
+.scent-system__card-use { left: 87.037%; }
+
+.scent-system__card-image,
+.scent-system__preview {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.scent-system__indicators {
+  position: absolute;
+  top: 89.4958%;
+  left: 50%;
+  display: flex;
+  gap: 15px;
+  transform: translateX(-50%);
+}
+
+.scent-system__indicators span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #52525b;
+}
+
+.scent-system__indicators span:first-child { background: #fff; }
+
+.scent-system__note {
+  position: absolute;
+  top: 98.0392%;
+  left: 0;
+  width: 100%;
+  margin: 0;
+  color: #a4a4ad;
+  font: 400 clamp(9px, .625vw, 12px) / 1.2 "Pretendard", Arial, sans-serif;
+  text-align: center;
+}
+
+.mapea-feature {
+  overflow: hidden;
+  background: #edebe9;
+  color: #18181b;
+}
+
+.mapea-feature__canvas {
+  display: grid;
+  grid-template-columns: 1040fr 880fr;
+  width: min(100%, 1920px);
+  aspect-ratio: 1920 / 1000;
+  margin: 0 auto;
+}
+
+.mapea-feature__visual,
+.mapea-feature__details { position: relative; min-width: 0; overflow: hidden; }
+.mapea-feature__visual > img { display: block; width: 100%; height: 100%; object-fit: cover; }
+
+.mapea-feature__indicators {
+  position: absolute;
+  bottom: 3.1%;
+  left: 51.8269%;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.mapea-feature__indicators span:first-child { width: 26px; height: 8px; border-radius: 20px; background: #40854c; }
+.mapea-feature__indicators span:last-child { width: 8px; height: 8px; border-radius: 50%; background: #fff; }
+
+.mapea-feature__details { isolation: isolate; background: #edebe9; }
+.mapea-feature__details::before {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  content: "";
+  background: url("./assets/process-background.png") no-repeat left top / 1920px 2558px;
+  opacity: .35;
+}
+
+.mapea-feature__artwork {
+  position: absolute;
+  z-index: -1;
+  top: -5.3%;
+  left: -7.2727%;
+  width: 114.6591%;
+  height: 110.6%;
+  opacity: .4;
+  pointer-events: none;
+}
+
+.mapea-feature__copy {
+  position: absolute;
+  top: 9.6%;
+  right: 7.2727%;
+  left: 7.2727%;
+}
+
+.mapea-feature__eyebrow {
+  margin: 0 0 37px;
+  color: #8f8e8b;
+  font: 400 clamp(10px, .625vw, 12px) / 1.2 "Pretendard", Arial, sans-serif;
+}
+
+.mapea-feature__copy h2 {
+  margin: 0;
+  font: 400 clamp(20px, 1.3542vw, 26px) / 1.4 "Nanum Myeongjo", "Bookk Myungjo", serif;
+  letter-spacing: .02em;
+}
+
+.mapea-feature__copy h2 strong { font-size: clamp(24px, 1.6667vw, 32px); font-weight: 700; }
+.mapea-feature__description {
+  max-width: 720px;
+  margin: 12px 0 0;
+  font: 400 clamp(11px, .7292vw, 14px) / 1.6 "Pretendard", Arial, sans-serif;
+  letter-spacing: -.02em;
+}
+
+.mapea-feature__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 16px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.mapea-feature__tags li {
+  padding: 6px 12px;
+  border-radius: 100px;
+  background: #4f8a59;
+  color: #fff;
+  font: 400 clamp(10px, .625vw, 12px) / 1.1667 "Pretendard", Arial, sans-serif;
+  letter-spacing: .02em;
+  white-space: nowrap;
+}
+
+.mapea-feature__footer {
+  position: absolute;
+  right: 7.2727%;
+  bottom: 9.6%;
+  left: 7.2727%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.mapea-feature__price { display: flex; align-items: baseline; gap: 10px; margin: 0; white-space: nowrap; }
+.mapea-feature__price strong { font: 700 clamp(17px, 1.25vw, 24px) / 1.2 "Pretendard", Arial, sans-serif; }
+.mapea-feature__price span { color: #9a9896; font: 400 clamp(10px, .625vw, 12px) / 1.2 "Pretendard", Arial, sans-serif; }
+
+.mapea-feature__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  width: 190px;
+  min-height: 52px;
+  flex: none;
+  background: #1e2229;
+  color: #fff;
+  font: 500 clamp(10px, .625vw, 12px) / 1.2 "Pretendard", Arial, sans-serif;
+  text-decoration: none;
+}
+
+.mapea-feature__button:hover { background: #30363e; }
+.mapea-feature__button:focus-visible { outline: 2px solid #1e2229; outline-offset: 4px; }
+
+.mapea-feature--second .mapea-feature__canvas { grid-template-columns: 880fr 1040fr; }
+.mapea-feature--second .mapea-feature__copy { text-align: right; }
+.mapea-feature--second .mapea-feature__description { margin-left: auto; }
+.mapea-feature--second .mapea-feature__tags { justify-content: flex-end; }
+.mapea-feature--second .mapea-feature__tags li { background: #4b1412; }
+.mapea-feature--second .mapea-feature__artwork {
+  top: -17.2%;
+  left: 0;
+  width: 100%;
+  height: 146.6%;
+  opacity: .2;
+}
+.mapea-feature--second .mapea-feature__indicators { left: 43.75%; }
+.mapea-feature--second .mapea-feature__indicators span:first-child { background: #5b1616; }
+
+.mapea-feature--third .mapea-feature__details::before { opacity: .4; }
+.mapea-feature--third .mapea-feature__artwork {
+  top: -.7%;
+  left: -10.5682%;
+  width: 114.3182%;
+  height: 132.3%;
+  opacity: .2;
+}
+.mapea-feature--third .mapea-feature__copy { top: 9.5%; }
+.mapea-feature--third .mapea-feature__eyebrow { margin-bottom: 29px; }
+.mapea-feature--third .mapea-feature__copy h2 { line-height: 43px; }
+.mapea-feature--third .mapea-feature__description { max-width: 583px; margin-top: 9px; }
+.mapea-feature--third .mapea-feature__tags li { background: #784a31; }
+.mapea-feature--third .mapea-feature__indicators span:first-child { background: #784a31; }
+.mapea-feature--third .mapea-feature__footer { right: 6.5909%; bottom: 9.7%; }
+.mapea-feature--third .mapea-feature__button { min-height: 50px; }
+
+.mapea-feature__object {
+  position: absolute;
+  top: 40.5%;
+  left: 7.2727%;
+  width: 70.4545%;
+  color: #18181b;
+}
+.mapea-feature__object-label {
+  margin: 0;
+  color: #71717a;
+  font: 400 13px / 16px "Pretendard", Arial, sans-serif;
+}
+.mapea-feature__object h3 {
+  margin: 6px 0 0;
+  font: 600 18px / 21px "Pretendard", Arial, sans-serif;
+}
+.mapea-feature__object-items {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 1px minmax(0, 1fr);
+  gap: 79.5px;
+  margin-top: 8px;
+}
+.mapea-feature__object-item { min-width: 0; }
+.mapea-feature__object-item img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 230 / 201;
+  object-fit: cover;
+  background: #f5f5f6;
+}
+.mapea-feature__object-item h4 {
+  margin: 12px 0 0;
+  font: 600 18px / 21px "Pretendard", Arial, sans-serif;
+}
+.mapea-feature__object-item p {
+  margin: 10px 0 0;
+  font: 400 14px / 17px "Pretendard", Arial, sans-serif;
+}
+.mapea-feature__object-divider { width: 1px; height: 261px; background: #cac8c4; }
+
+@media (max-width: 1100px) {
+  .mapea-feature--third .mapea-feature__details {
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    padding: 64px 40px 48px;
+  }
+  .mapea-feature--third .mapea-feature__copy,
+  .mapea-feature--third .mapea-feature__object,
+  .mapea-feature--third .mapea-feature__footer {
+    position: relative;
+    top: auto;
+    right: auto;
+    bottom: auto;
+    left: auto;
+    width: 100%;
+  }
+  .mapea-feature--third .mapea-feature__object { max-width: 620px; margin-top: 72px; }
+  .mapea-feature--third .mapea-feature__footer { margin-top: 80px; }
+  .mapea-feature--third .mapea-feature__copy h2 { line-height: 1.4; }
+  .mapea-feature__object-items { gap: clamp(20px, 7vw, 79.5px); }
+}
+
+@media (max-width: 600px) {
+  .mapea-feature--third .mapea-feature__details { padding: 48px 24px 36px; }
+  .mapea-feature--third .mapea-feature__copy h2 { line-height: 1.45; }
+  .mapea-feature--third .mapea-feature__object { margin-top: 56px; }
+  .mapea-feature__object-items { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+  .mapea-feature__object-divider { display: none; }
+  .mapea-feature__object h3,
+  .mapea-feature__object-item h4 { font-size: 16px; }
+  .mapea-feature__object-item p { font-size: 12px; line-height: 1.4; }
+  .mapea-feature--third .mapea-feature__footer { margin-top: 64px; }
+}
+
+@media (max-width: 1500px) {
+  .story__detail p { white-space: normal; }
+  .story__desktop-break { display: none; }
+  .process__intro p { white-space: normal; }
+  .scent-system__desktop-break { display: none; }
+  .scent-system__intro p { white-space: normal; }
+}
+
 @media (max-width: 900px) {
   .site-header__inner { width: calc(100% - 48px); }
   .hero__content { top: 40%; }
+}
+
+@media (max-width: 1100px) {
+  .story__canvas {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    width: min(100%, 760px);
+    aspect-ratio: auto;
+    padding: 84px 24px 96px;
+  }
+  .story__brush {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .story__intro,
+  .story__detail,
+  .story__photo {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: 100%;
+    height: auto;
+  }
+  .story__intro h2 { font-size: clamp(23px, 4vw, 32px); white-space: normal; }
+  .story__intro p { margin-top: 32px; font-size: 14px; }
+  .story__photo--top { aspect-ratio: 748 / 872; }
+  .story__detail { margin: 12px 0 0; }
+  .story__detail h3 { font-size: 20px; }
+  .story__detail p { font-size: 14px; line-height: 1.5; }
+  .story__photo--middle { align-self: flex-end; width: 65%; aspect-ratio: 400 / 530; }
+  .story__photo--bottom { align-self: flex-start; width: 78%; aspect-ratio: 522 / 746; }
+
+  .process__canvas {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: min(100%, 760px);
+    aspect-ratio: auto;
+    padding: 72px 24px 96px;
+    background: #f3f1ee url("./assets/process-background.png") no-repeat left top / auto 100%;
+  }
+  .process__background { display: none; }
+  .process__intro,
+  .process__photo,
+  .process__text {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: min(100%, 471px);
+  }
+  .process__intro { margin-bottom: 24px; }
+  .process__intro h2 { font-size: clamp(24px, 4vw, 32px); line-height: 1.4; white-space: normal; }
+  .process__intro p { width: 100%; margin-top: 16px; font-size: 14px; white-space: normal; }
+  .process__photo--extraction,
+  .process__text--extraction { align-self: flex-end; }
+  .process__text { padding: 0 0 80px; }
+  .process__text h3 { font-size: 18px; }
+  .process__text p { font-size: 14px; }
+
+  .scent-system__canvas {
+    display: flex;
+    flex-direction: column;
+    width: min(100%, 760px);
+    aspect-ratio: auto;
+    padding: 80px 24px 96px;
+  }
+  .scent-system__artwork {
+    top: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+  }
+  .scent-system__intro,
+  .scent-system__gallery {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: 100%;
+  }
+  .scent-system__intro h2 {
+    font-size: clamp(23px, 3vw, 30px);
+    line-height: 1.35;
+    white-space: normal;
+  }
+  .scent-system__intro h2 strong { font-size: clamp(25px, 3.2vw, 34px); }
+  .scent-system__intro p {
+    width: min(100%, 608px);
+    margin-top: 20px;
+    font-size: 14px;
+    line-height: 1.55;
+  }
+  .scent-system__gallery { aspect-ratio: auto; margin: 56px auto 0; }
+  .scent-system__cards { display: block; height: auto; }
+  .scent-system__card { width: 100%; aspect-ratio: 1183 / 613; }
+  .scent-system__preview { display: none; }
+  .scent-system__indicators {
+    position: relative;
+    top: auto;
+    left: auto;
+    justify-content: center;
+    margin-top: 24px;
+    transform: none;
+  }
+  .scent-system__note {
+    position: relative;
+    top: auto;
+    margin-top: 30px;
+    font-size: 12px;
+    line-height: 1.5;
+  }
+
+  .mapea-feature__canvas,
+  .mapea-feature--second .mapea-feature__canvas { display: flex; flex-direction: column; width: min(100%, 760px); aspect-ratio: auto; }
+  .mapea-feature__visual { aspect-ratio: 1040 / 1000; }
+  .mapea-feature__details { min-height: 540px; }
+  .mapea-feature__copy { top: 64px; right: 40px; left: 40px; }
+  .mapea-feature__eyebrow { margin-bottom: 28px; }
+  .mapea-feature__copy h2 { font-size: clamp(22px, 3vw, 26px); }
+  .mapea-feature__copy h2 strong { font-size: clamp(26px, 3.5vw, 32px); }
+  .mapea-feature__description { font-size: 14px; }
+  .mapea-feature__tags li { font-size: 12px; }
+  .mapea-feature__footer { right: 40px; bottom: 48px; left: 40px; }
+  .mapea-feature__price strong { font-size: 22px; }
+  .mapea-feature__price span { font-size: 12px; }
 }
 
 @media (max-width: 600px) {
@@ -156,4 +916,32 @@ body { margin: 0; background: #080a09; }
   .site-nav { gap: 14px; font-size: 11px; }
   .hero h1 { font-size: clamp(25px, 6vw, 36px); }
   .hero__caption { bottom: 28px; font-size: 10px; }
+
+  .scent-system__canvas { padding: 72px 20px 80px; }
+  .scent-system__intro h2 { font-size: 23px; }
+  .scent-system__intro h2 strong { display: block; font-size: 25px; }
+  .scent-system__gallery { margin-top: 40px; }
+  .scent-system__card { display: flex; flex-direction: column; aspect-ratio: auto; }
+  .scent-system__card-copy { height: 500px; flex: none; }
+  .scent-system__card-index { top: 20px; left: 20px; font-size: 12px; }
+  .scent-system__card-columns { top: 54px; left: 36%; width: 108px; height: auto; }
+  .scent-system__card-columns h3 { font-size: 18px; }
+  .scent-system__card-tagline { font-size: 11px; }
+  .scent-system__card-description,
+  .scent-system__card-use { font-size: 14px; }
+  .scent-system__card-image { height: auto; aspect-ratio: 756 / 613; }
+
+  .mapea-feature__details { min-height: 560px; }
+  .mapea-feature__copy { top: 48px; right: 24px; left: 24px; }
+  .mapea-feature__eyebrow { margin-bottom: 24px; font-size: 10px; }
+  .mapea-feature__copy h2 { font-size: 19px; }
+  .mapea-feature__copy h2 strong { font-size: 24px; }
+  .mapea-feature__description { font-size: 12px; }
+  .mapea-feature__tags { gap: 6px; margin-top: 16px; }
+  .mapea-feature__tags li { padding: 5px 10px; font-size: 10px; line-height: 12px; }
+  .mapea-feature__footer { right: 24px; bottom: 34px; left: 24px; align-items: stretch; flex-direction: column; gap: 18px; }
+  .mapea-feature__price { justify-content: space-between; gap: 8px; }
+  .mapea-feature__price strong { font-size: 20px; }
+  .mapea-feature__price span { font-size: 10px; }
+  .mapea-feature__button { width: 100%; min-height: 48px; font-size: 12px; }
 }

@@ -71,7 +71,7 @@ body { width: 1920px; height: 100svh; min-height: 100svh; overflow: visible; }
 .profile__photo { position: absolute; left: 97px; top: 211px; width: 403px; height: 494px; background: #f4f4f4; }
 .profile__flower-green { left: 20px; top: 121px; width: 216px; height: 222px; }
 .profile__star { left: 435px; top: 639px; width: 162px; height: 143px; }
-.profile__topbar { position: absolute; z-index: 10; right: 111px; top: 1000px; width: 639px; height: 85px; }
+.profile__topbar { position: absolute; z-index: 10; right: 111px; top: 990px; width: 639px; height: 85px; }
 .profile__topbar-toggle { position: absolute; left: 545px; top: 0; width: 94px; height: 85px; padding: 0; border: 0; background: transparent; cursor: pointer; }
 .profile__topbar-toggle:focus-visible { outline: 3px solid #ee5144; outline-offset: 3px; border-radius: 22px; }
 .profile__flower-blue { position: absolute; display: block; left: 0; top: 0; width: 94px; height: 85px; pointer-events: none; user-select: none; }
