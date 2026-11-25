@@ -7,14 +7,39 @@
     <title>이은수 | Portfolio</title>
     <link rel="preload" href="./fonts/bricolage-grotesque-800.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="./fonts/fraunces-300-italic.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="./fonts/fraunces-variable-italic.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="./fonts/paperlogy-500.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="./fonts/cormorant-infant-700-italic.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="stylesheet" href="./style.css" />
+    <link rel="preload" href="./fonts/mulmaru-regular.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="stylesheet" href="./style.css?v=3" />
     <link rel="stylesheet" href="./profile.css?v=6" />
-    <link rel="stylesheet" href="./composition.css?v=2" />
+    <link rel="stylesheet" href="./composition.css?v=11" />
   </head>
   <body>
     <main class="page">
+      <section class="slide" id="intro" aria-label="포트폴리오 시작 화면">
+        <div class="intro">
+          <div class="intro__canvas" id="intro-canvas">
+            <img class="intro__cloud intro__cloud--left" src="./개인 프로필 이미지/5fe729e7-eddf-48bc-a54e-282fdf90a8bd 4.png" alt="" />
+            <img class="intro__cloud intro__cloud--right" src="./개인 프로필 이미지/5fe729e7-eddf-48bc-a54e-282fdf90a8bd 2.png" alt="" />
+            <img class="intro__cloud intro__cloud--bottom" src="./개인 프로필 이미지/5fe729e7-eddf-48bc-a54e-282fdf90a8bd 3.png" alt="" />
+            <img class="intro__paper" src="./개인 프로필 이미지/c1804921-03a3-4b09-b714-bd70e53b5ee6 1.png" alt="" />
+            <img class="intro__grid" src="./개인 프로필 이미지/41916338_8964647 1.png" alt="" />
+            <h1 class="intro__progress" aria-label="0%">
+              <span class="intro__digits" aria-hidden="true">0</span>
+              <span class="intro__percent" aria-hidden="true">%</span>
+            </h1>
+            <img class="intro__button intro__button--blue" src="./개인 프로필 이미지/8cceb90c-4e77-4479-b4d3-12500809266a 4.png" alt="" />
+            <img class="intro__button intro__button--green" src="./개인 프로필 이미지/8cceb90c-4e77-4479-b4d3-12500809266a 24.png" alt="" />
+            <img class="intro__apple" src="./개인 프로필 이미지/사과.png" alt="" />
+            <button class="intro__skip" type="button" aria-label="썸네일로 이동">
+              <img src="./개인 프로필 이미지/928c09c3-bc69-4501-a627-279b2bd3bf65 3.png" alt="" />
+              <span>SKIP</span>
+            </button>
+          </div>
+        </div>
+      </section>
+
       <section class="slide" id="thumbnail" aria-label="포트폴리오 썸네일">
         <div class="thumbnail">
           <div class="thumbnail__canvas" id="thumbnail-canvas">
@@ -98,9 +123,37 @@
 
       <section class="slide" id="composition" aria-label="포트폴리오 구성">
         <div class="composition">
-          <h2 class="composition__heading">포트폴리오</h2>
-          <img class="composition__project composition__project--mildo" src="./assets/portfolio-mildo-revised.png" alt="밀도 향수 프로젝트" />
-          <img class="composition__project composition__project--ohora" src="./assets/portfolio-ohora-revised.png" alt="ohora 화장품 프로젝트" />
+          <div class="composition__gallery">
+            <div class="composition__cards">
+              <article class="composition__card">
+                <div class="composition__card-image composition__card-image--mildo"><img src="./개인 프로필 이미지/Free_iMac_Mockup_1 copy 2.png" alt="밀도 브랜딩 웹사이트 화면" /></div>
+                <h2>밀도 브랜딩<span>MILDO Branding</span></h2>
+              </article>
+              <article class="composition__card">
+                <div class="composition__card-image composition__card-image--ohora"><img src="./개인 프로필 이미지/MacBook_Mockup_1 copy 1.png" alt="오호라 리브랜딩 웹사이트 화면" /></div>
+                <h2>오호라 리브랜딩<span>ohora ReBranding</span></h2>
+              </article>
+              <div class="composition__card composition__card--empty" aria-hidden="true"><div class="composition__card-image"></div></div>
+            </div>
+          </div>
+          <footer class="composition__footer">
+            <p>2026 Portfolio</p>
+            <div class="composition__decor" aria-hidden="true">
+              <img class="composition__decor-pattern" src="./개인 프로필 이미지/dfd.png" alt="" />
+              <img class="composition__decor-left-collage" src="./개인 프로필 이미지/3b161a15-9de5-436f-ad6f-a0c8d2931f27.png" alt="" />
+              <img class="composition__decor-flower-blue" src="./개인 프로필 이미지/단추.png" alt="" />
+              <img class="composition__decor-spiral" src="./개인 프로필 이미지/sd.png" alt="" />
+              <img class="composition__decor-red-button" src="./개인 프로필 이미지/8cceb90c-4e77-4479-b4d3-12500809266a 25.png" alt="" />
+              <span class="composition__decor-green" aria-hidden="true"></span>
+              <img class="composition__decor-star" src="./개인 프로필 이미지/d905702e-e90b-4f9f-89cf-faabdb624a05 2.png" alt="" />
+              <img class="composition__decor-polka" src="./개인 프로필 이미지/928c09c3-bc69-4501-a627-279b2bd3bf65 2.png" alt="" />
+              <img class="composition__decor-plaid" src="./개인 프로필 이미지/8cceb90c-4e77-4479-b4d3-12500809266a 13.png" alt="" />
+              <img class="composition__decor-cyan" src="./개인 프로필 이미지/928c09c3-bc69-4501-a627-279b2bd3bf65 4.png" alt="" />
+              <img class="composition__decor-grid" src="./개인 프로필 이미지/2.png" alt="" />
+              <img class="composition__decor-purple" src="./개인 프로필 이미지/8cceb90c-4e77-4479-b4d3-12500809266a 4.png" alt="" />
+              <img class="composition__decor-apple-right" src="./개인 프로필 이미지/사과.png" alt="" />
+            </div>
+          </footer>
         </div>
       </section>
 
@@ -115,6 +168,6 @@
         </button>
       </div>
     </main>
-    <script src="./script.js"></script>
+    <script src="./script.js?v=11"></script>
   </body>
 </html>

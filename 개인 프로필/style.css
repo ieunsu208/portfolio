@@ -13,12 +13,53 @@
   font-weight: 300;
   font-display: swap;
 }
+@font-face {
+  font-family: "Fraunces Variable";
+  src: url("./fonts/fraunces-variable-italic.woff2") format("woff2");
+  font-style: italic;
+  font-weight: 300;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Mulmaru";
+  src: url("./fonts/mulmaru-regular.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
 
 * { box-sizing: border-box; }
 
 html, body { margin: 0; min-height: 100%; }
 
 body { background: #f4f5f2; }
+
+.intro {
+  position: relative;
+  width: 1920px;
+  height: 950px;
+  overflow: hidden;
+  background: #b0dbf5;
+  isolation: isolate;
+}
+.intro__canvas { position: absolute; inset: 0 auto auto 0; width: 1920px; height: 950px; transform-origin: top left; }
+.intro__canvas > img { position: absolute; display: block; max-width: none; pointer-events: none; user-select: none; }
+.intro__cloud--left { left: -10px; top: 24px; width: 352px; height: 267px; }
+.intro__cloud--right { left: 1588px; top: 78px; width: 332px; height: 377px; }
+.intro__cloud--bottom { left: 124px; top: 572px; width: 456px; height: 334px; }
+.intro__paper { left: 176px; top: 45px; width: 1460px; height: 890px; }
+.intro__grid { left: 390px; top: 240px; width: 1249px; height: 507px; }
+.intro__button--blue { left: 374px; top: 196px; width: 169px; height: 146px; }
+.intro__button--green { left: 313px; top: 329px; width: 116px; height: 113px; }
+.intro__apple { left: 1350px; top: 252px; width: 190px; height: 202px; }
+.intro__progress { position: absolute; left: 884px; top: 307px; transform: translateX(-50%); margin: 0; color: #ee5144; white-space: nowrap; font-synthesis: none; }
+.intro__digits { display: block; font: normal 400 256px / 1.4 "Mulmaru", sans-serif; font-variant-numeric: tabular-nums; letter-spacing: -0.02em; }
+.intro__percent { position: absolute; left: calc(100% - 5px); top: 8px; font: italic 300 306px / 1.4 "Fraunces Variable", serif; font-optical-sizing: auto; font-variation-settings: "SOFT" 0, "WONK" 0; letter-spacing: -0.02em; }
+.intro__skip { position: absolute; left: 1321px; top: 660px; width: 367px; height: 127px; padding: 0; border: 0; background: transparent; color: #374878; cursor: pointer; }
+.intro__skip img { display: block; width: 100%; height: 100%; }
+.intro__skip span { position: absolute; left: 0; right: 0; top: 44px; font: italic 700 50px / 38px "Cormorant Infant", serif; letter-spacing: -0.02em; }
+.intro__skip:hover { transform: translateY(-5px); }
+.intro__skip:focus-visible { outline: 4px solid #374878; outline-offset: 2px; }
 
 .page {
   min-height: 100svh;

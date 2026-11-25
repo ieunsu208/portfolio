@@ -1,17 +1,26 @@
 const page = document.querySelector(".page");
+const introSlide = document.querySelector("#intro");
 const thumbnailSlide = document.querySelector("#thumbnail");
 const aboutSlide = document.querySelector("#about-me");
 const compositionSlide = document.querySelector("#composition");
+const compositionFooter = document.querySelector(".composition__footer");
+const compositionFooterTitle = compositionFooter.querySelector("p");
 const topbar = document.querySelector(".profile__topbar");
 const portfolioMenu = document.querySelector("#portfolio-menu");
 const topbarToggle = document.querySelector(".profile__topbar-toggle");
 const topbarFlower = topbarToggle.querySelector(".profile__flower-blue");
+const introSkip = document.querySelector(".intro__skip");
+const introDigits = document.querySelector(".intro__digits");
+const introProgress = document.querySelector(".intro__progress");
 const navLinks = [...document.querySelectorAll(".profile__nav a")];
 
+const INTRO_HEIGHT = 950;
 const THUMBNAIL_HEIGHT = 950;
 const PROFILE_HEIGHT = 1050;
-const COMPOSITION_HEIGHT = 2017;
-const COMPOSITION_START = THUMBNAIL_HEIGHT + PROFILE_HEIGHT;
+const COMPOSITION_HEIGHT = 1757;
+const THUMBNAIL_START = INTRO_HEIGHT;
+const PROFILE_START = THUMBNAIL_START + THUMBNAIL_HEIGHT;
+const COMPOSITION_START = PROFILE_START + PROFILE_HEIGHT;
 const TOPBAR_TOP = 40;
 
 for (const skill of document.querySelectorAll(".profile__skill")) {
@@ -25,13 +34,15 @@ for (const skill of document.querySelectorAll(".profile__skill")) {
 }
 
 const startingPositions = {
-  "#thumbnail": 0,
-  "#about-me": THUMBNAIL_HEIGHT,
+  "#intro": 0,
+  "#thumbnail": THUMBNAIL_START,
+  "#about-me": PROFILE_START,
   "#composition": COMPOSITION_START,
 };
 let position = startingPositions[location.hash] ?? 0;
 let drag = null;
 let suppressClick = false;
+compositionFooter.classList.add("is-pending");
 
 function maxPosition() {
   return COMPOSITION_START + Math.max(0, COMPOSITION_HEIGHT - window.innerHeight);
@@ -40,24 +51,49 @@ function maxPosition() {
 function renderPosition(value) {
   position = Math.max(0, Math.min(maxPosition(), value));
 
-  // Each new frame travels upward over the preceding frame. Keep the profile
-  // moving until its bottom has passed through the viewport.
+  // Each new frame travels upward over the preceding frame.
+  const introOverflow = Math.max(0, INTRO_HEIGHT - window.innerHeight);
   const thumbnailOverflow = Math.max(0, THUMBNAIL_HEIGHT - window.innerHeight);
   const profileOverflow = Math.max(0, PROFILE_HEIGHT - window.innerHeight);
-  const thumbnailTop = -Math.min(position, thumbnailOverflow);
-  const profileTop = Math.max(THUMBNAIL_HEIGHT - position, -profileOverflow);
+  const introTop = -Math.min(position, introOverflow);
+  const thumbnailTop = Math.max(THUMBNAIL_START - position, -thumbnailOverflow);
+  const profileTop = Math.max(PROFILE_START - position, -profileOverflow);
   const compositionTop = COMPOSITION_START - position;
 
+  introSlide.style.transform = `translate3d(0, ${introTop}px, 0)`;
   thumbnailSlide.style.transform = `translate3d(0, ${thumbnailTop}px, 0)`;
   aboutSlide.style.transform = `translate3d(0, ${profileTop}px, 0)`;
   compositionSlide.style.transform = `translate3d(0, ${compositionTop}px, 0)`;
   topbar.style.top = `${Math.max(profileTop + TOPBAR_TOP, TOPBAR_TOP)}px`;
 
+  const footerTitleBounds = compositionFooterTitle.getBoundingClientRect();
+  if (footerTitleBounds.top <= window.innerHeight - footerTitleBounds.height / 2 && footerTitleBounds.bottom > 0 && compositionFooter.classList.contains("is-pending")) {
+    const decorItems = [...compositionFooter.querySelectorAll(".composition__decor > *")];
+    const delays = decorItems.map((_, index) => index * 12);
+    for (let index = delays.length - 1; index > 0; index--) {
+      const randomIndex = Math.floor(Math.random() * (index + 1));
+      [delays[index], delays[randomIndex]] = [delays[randomIndex], delays[index]];
+    }
+
+    for (const [index, item] of decorItems.entries()) {
+      const translatedY = Number.parseFloat(getComputedStyle(item).translate.split(" ")[1]) || 0;
+      const restingBottom = item.getBoundingClientRect().bottom - translatedY;
+      // Place the entire image above the viewport before the shared drop begins.
+      item.style.setProperty("--drop-height", `${-Math.ceil(restingBottom + 48)}px`);
+      item.style.setProperty("--fall-delay", `${delays[index]}ms`);
+    }
+    compositionFooter.classList.replace("is-pending", "is-revealed");
+  } else if (footerTitleBounds.top >= window.innerHeight + 40) {
+    compositionFooter.classList.replace("is-revealed", "is-pending");
+  }
+
   const current = compositionTop < window.innerHeight / 2
     ? "#composition"
     : profileTop < window.innerHeight / 2
       ? "#about-me"
-      : "#thumbnail";
+      : thumbnailTop < window.innerHeight / 2
+        ? "#thumbnail"
+        : "#intro";
   for (const link of navLinks) {
     if (link.getAttribute("href") === current) link.setAttribute("aria-current", "page");
     else link.removeAttribute("aria-current");
@@ -66,6 +102,25 @@ function renderPosition(value) {
 
 renderPosition(position);
 window.addEventListener("resize", () => renderPosition(position));
+
+function setIntroProgress(value) {
+  introDigits.textContent = String(value);
+  introProgress.setAttribute("aria-label", `${value}%`);
+}
+
+if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+  setIntroProgress(100);
+} else {
+  const countDuration = 2800;
+  let countStart;
+  function countUp(timestamp) {
+    countStart ??= timestamp;
+    const elapsed = Math.min(timestamp - countStart, countDuration);
+    setIntroProgress(Math.floor(elapsed / countDuration * 100));
+    if (elapsed < countDuration) requestAnimationFrame(countUp);
+  }
+  setTimeout(() => requestAnimationFrame(countUp), 500);
+}
 
 page.addEventListener("pointerdown", event => {
   if (event.pointerType === "mouse" && event.button !== 0) return;
@@ -113,6 +168,8 @@ for (const link of navLinks) {
     renderPosition(startingPositions[link.getAttribute("href")] ?? 0);
   });
 }
+
+introSkip.addEventListener("click", () => renderPosition(THUMBNAIL_START));
 
 topbarToggle.addEventListener("click", () => {
   topbarFlower.getAnimations().forEach(animation => animation.cancel());

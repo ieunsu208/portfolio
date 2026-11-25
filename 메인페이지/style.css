@@ -223,7 +223,7 @@ body { margin: 0; background: #080a09; }
 
 .story__intro h2 {
   margin: 0;
-  font: 700 clamp(24px, 2.2917vw, 44px) / 1.36364 "Nanum Myeongjo", "Bookk Myungjo", serif;
+  font: 700 clamp(24px, 2.2917vw, 44px) / 1.36364 "Bookk Myungjo", serif;
   letter-spacing: .04em;
   white-space: nowrap;
 }
@@ -317,7 +317,7 @@ body { margin: 0; background: #080a09; }
 
 .process__intro h2 {
   margin: 0;
-  font: 400 clamp(24px, 2.2917vw, 44px) / 55px "Nanum Myeongjo", "Bookk Myungjo", serif;
+  font: 300 clamp(24px, 2.2917vw, 44px) / 55px "Bookk Myungjo", serif;
   letter-spacing: .04em;
   white-space: nowrap;
 }
@@ -590,7 +590,7 @@ body { margin: 0; background: #080a09; }
 
 .mapea-feature__copy h2 {
   margin: 0;
-  font: 400 clamp(20px, 1.3542vw, 26px) / 1.4 "Nanum Myeongjo", "Bookk Myungjo", serif;
+  font: 300 clamp(20px, 1.3542vw, 26px) / 1.4 "Bookk Myungjo", serif;
   letter-spacing: .02em;
 }
 
@@ -713,9 +713,9 @@ body { margin: 0; background: #080a09; }
   width: 100%;
   height: auto;
   aspect-ratio: 230 / 201;
-  object-fit: cover;
-  background: #f5f5f6;
+  object-fit: contain;
 }
+.mapea-feature__object-item:last-child img { transform: scale(.75, .88); }
 .mapea-feature__object-item h4 {
   margin: 12px 0 0;
   font: 600 18px / 21px "Pretendard", Arial, sans-serif;
@@ -944,4 +944,379 @@ body { margin: 0; background: #080a09; }
   .mapea-feature__price strong { font-size: 20px; }
   .mapea-feature__price span { font-size: 10px; }
   .mapea-feature__button { width: 100%; min-height: 48px; font-size: 12px; }
+}
+
+.discovery {
+  overflow: hidden;
+  background: #edebe9;
+  color: #18181b;
+}
+
+.discovery__canvas {
+  position: relative;
+  width: min(100%, 1920px);
+  aspect-ratio: 1920 / 1344;
+  margin: 0 auto;
+  isolation: isolate;
+}
+
+.discovery__landscape {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+.discovery__intro {
+  position: absolute;
+  z-index: 2;
+  top: 16.37%;
+  left: 50%;
+  width: min(85.42%, 1640px);
+  text-align: center;
+  transform: translateX(-50%);
+}
+
+.discovery__intro h2 {
+  margin: 0;
+  font: 300 clamp(25px, 1.98vw, 38px) / 1.4 "Bookk Myungjo", serif;
+  letter-spacing: .02em;
+}
+
+.discovery__intro h2 strong { font-weight: 700; }
+
+.discovery__tags {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  margin-top: 22px;
+}
+
+.discovery__tags::before,
+.discovery__tags::after {
+  content: "";
+  flex: 1;
+  min-width: 0;
+  height: 2px;
+  background: #bcb9b5;
+}
+
+.discovery__tag-list {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex: none;
+}
+
+.discovery__tag-list span {
+  padding: 7px 12px;
+  border-radius: 100px;
+  background: #434242;
+  color: #fff;
+  font: 400 clamp(10px, .625vw, 12px) / 1.2 "Pretendard", Arial, sans-serif;
+  white-space: nowrap;
+}
+
+.discovery__photo-shadow,
+.discovery__photo {
+  position: absolute;
+  top: 38.1%;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 61.9%;
+  object-fit: fill;
+}
+
+.discovery__photo-shadow {
+  top: 36.75595%;
+  height: 62.79762%;
+}
+
+@media (max-width: 1100px) {
+  .discovery__canvas { width: min(100%, 760px); aspect-ratio: auto; }
+  .discovery__landscape { height: 480px; object-position: center top; }
+  .discovery__intro { position: relative; top: auto; left: auto; width: 100%; padding: 100px 24px 96px; transform: none; }
+  .discovery__intro h2 { font-size: clamp(26px, 4vw, 38px); }
+  .discovery__photo-shadow,
+  .discovery__photo { position: relative; top: auto; left: auto; height: auto; aspect-ratio: 1920 / 832; }
+  .discovery__photo-shadow { position: absolute; top: auto; bottom: 0; aspect-ratio: 1920 / 844; transform: translateY(-.71%); }
+}
+
+@media (max-width: 600px) {
+  .discovery__intro { padding: 72px 20px 72px; }
+  .discovery__intro h2 { font-size: clamp(21px, 6vw, 29px); }
+  .discovery__tags { gap: 10px; }
+  .discovery__tag-list { gap: 6px; }
+  .discovery__tag-list span { padding: 6px 8px; font-size: 10px; }
+  .discovery__photo { aspect-ratio: 4 / 3; object-fit: cover; object-position: center; }
+  .discovery__photo-shadow { aspect-ratio: 832 / 633; object-fit: cover; object-position: center; }
+}
+
+.fragrance-story {
+  overflow: hidden;
+  background: #ebe9e7;
+  color: #18181b;
+}
+
+.fragrance-story__canvas {
+  position: relative;
+  width: min(100%, 1920px);
+  aspect-ratio: 1920 / 1021;
+  margin: 0 auto;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.fragrance-story__landscape {
+  position: absolute;
+  top: -34.87%;
+  left: 2.6%;
+  display: block;
+  width: 101.82%;
+  height: 147.4%;
+  object-fit: fill;
+  opacity: .55;
+  pointer-events: none;
+}
+
+.fragrance-story__trio {
+  position: absolute;
+  top: 36.925%;
+  left: 17.552%;
+  display: flex;
+  justify-content: space-between;
+  width: 30.729%;
+  height: 49.657%;
+}
+
+.fragrance-story__card {
+  position: relative;
+  flex: none;
+  width: 11.864%;
+  height: 100%;
+  border-left: 1px solid #000;
+  text-align: center;
+}
+
+.fragrance-story__seal {
+  position: relative;
+  left: -1px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: calc(100% + 1px);
+  aspect-ratio: 1;
+  background: #1e2229;
+  color: #fff;
+  font: 700 clamp(16px, 1.667vw, 32px) / 1 "Bookk Myungjo", serif;
+}
+
+.fragrance-story__card h3 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin: 26px 0 0;
+  font: 600 clamp(14px, 1.354vw, 26px) / 1.1 "Pretendard", Arial, sans-serif;
+}
+
+.fragrance-story__card h3 span + span { margin-top: 26px; }
+
+.fragrance-story__volume {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  color: #a1a1aa;
+  font: 400 clamp(9px, .729vw, 14px) / 1.2 "Pretendard", Arial, sans-serif;
+}
+
+.fragrance-story__rail {
+  position: absolute;
+  top: 0;
+  left: 88.385%;
+  width: 1.771%;
+  height: 72.184%;
+}
+
+.fragrance-story__rail::before {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 2px;
+  height: 27.951%;
+  background: #000;
+  content: "";
+}
+
+.fragrance-story__rail h2 {
+  position: absolute;
+  top: 29.444%;
+  left: 0;
+  margin: 0;
+  font: 700 clamp(18px, 1.771vw, 34px) / 1.1 "Bookk Myungjo", serif;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.fragrance-story__rail-desktop {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.fragrance-story__rail-hanzi { font-family: "Pretendard", Arial, sans-serif; font-weight: 600; }
+.fragrance-story__rail-separator { font-family: "Pretendard", Arial, sans-serif; font-weight: 600; }
+.fragrance-story__rail-desktop .fragrance-story__rail-separator { margin-top: .35em; }
+.fragrance-story__rail-word { font-family: "Bookk Myungjo", serif; font-weight: 700; }
+.fragrance-story__rail-word--second { margin-top: .97em; }
+.fragrance-story__rail-word--third { margin-top: 1.24em; }
+.fragrance-story__rail-word--fourth { margin-top: .71em; }
+
+.fragrance-story__rail-mobile { display: none; }
+
+@media (max-width: 1000px) {
+  .fragrance-story__canvas { min-height: 700px; aspect-ratio: auto; }
+  .fragrance-story__landscape { top: -10%; left: -25%; width: 150%; height: 110%; object-fit: cover; }
+  .fragrance-story__rail { top: 64px; left: 24px; width: calc(100% - 48px); height: auto; }
+  .fragrance-story__rail::before { top: 50%; left: 0; width: 42px; height: 2px; }
+  .fragrance-story__rail h2 { position: relative; top: auto; left: auto; margin-left: 56px; font-size: clamp(22px, 3vw, 30px); text-align: left; }
+  .fragrance-story__rail-desktop { display: none; }
+  .fragrance-story__rail-mobile { display: inline; }
+  .fragrance-story__trio { top: 190px; left: 50%; width: min(calc(100% - 48px), 420px); height: 410px; transform: translateX(-50%); }
+  .fragrance-story__card { width: 70px; }
+  .fragrance-story__seal { font-size: 30px; }
+  .fragrance-story__card h3 { font-size: 22px; }
+  .fragrance-story__volume { font-size: 13px; }
+}
+
+@media (max-width: 600px) {
+  .fragrance-story__canvas { min-height: 620px; }
+  .fragrance-story__rail { top: 54px; }
+  .fragrance-story__rail h2 { font-size: clamp(18px, 5vw, 22px); }
+  .fragrance-story__trio { top: 156px; height: 390px; }
+  .fragrance-story__card { width: 60px; }
+  .fragrance-story__card h3 { margin-top: 24px; font-size: 20px; }
+}
+
+.product-gallery {
+  overflow: hidden;
+  background: #1e1e1e;
+  color: #fff;
+}
+
+.product-gallery__canvas {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  width: min(100%, 1920px);
+  margin: 0 auto;
+}
+
+.product-gallery__pair { min-width: 0; }
+
+.product-gallery__scene,
+.product-gallery__product {
+  position: relative;
+  aspect-ratio: 480 / 546;
+  overflow: hidden;
+}
+
+.product-gallery__scene { background: #000; }
+
+.product-gallery__scene::before {
+  position: absolute;
+  z-index: 1;
+  inset: 8.333%;
+  border: 1px solid rgba(255, 255, 255, .42);
+  content: "";
+  pointer-events: none;
+}
+
+.product-gallery__scene > img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: .4;
+}
+
+.product-gallery__scene h2 {
+  position: absolute;
+  top: 36.63%;
+  left: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 34px;
+  margin: 0;
+  font: 700 clamp(15px, 1.458vw, 28px) / 1.15 "Bookk Myungjo", serif;
+  text-align: center;
+  white-space: nowrap;
+  transform: translateX(-50%);
+}
+
+.product-gallery__scene--kit h2 { top: 32%; gap: 18px; font-size: clamp(13px, 1.25vw, 24px); }
+
+.product-gallery__cart,
+.product-gallery__volume {
+  position: absolute;
+  z-index: 2;
+  bottom: 9.158%;
+  font: 400 clamp(9px, .729vw, 14px) / 1.2 "Pretendard", Arial, sans-serif;
+  white-space: nowrap;
+}
+
+.product-gallery__cart {
+  left: 10.417%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 36px;
+  padding: 0 10px;
+  border: 1px solid rgba(255, 255, 255, .8);
+}
+
+.product-gallery__volume { right: 10.417%; color: #d4d4d4; }
+
+.product-gallery__product { display: flex; align-items: center; justify-content: center; }
+.product-gallery__product--yuja { background: #858585; }
+.product-gallery__product--redpine { background: #555; }
+.product-gallery__product--sandalwood { background: #383838; }
+.product-gallery__product--kit { background: #1e1e1e; }
+
+.product-gallery__product img {
+  display: block;
+  width: 80%;
+  height: 78%;
+  object-fit: contain;
+}
+
+.product-gallery__product--yuja img { transform: scale(1.1); }
+.product-gallery__product--sandalwood img { width: 75.42%; height: 66.3%; }
+.product-gallery__product--kit img { width: 66.46%; height: 71.61%; transform: scale(1.45); }
+
+@media (max-width: 1100px) {
+  .product-gallery__scene h2 { gap: 18px; }
+  .product-gallery__scene--kit h2 { gap: 10px; }
+  .product-gallery__cart { min-height: 27px; padding: 0 6px; }
+}
+
+@media (max-width: 760px) {
+  .product-gallery__canvas { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .product-gallery__scene h2 { gap: 14px; font-size: clamp(17px, 4vw, 23px); }
+  .product-gallery__scene--kit h2 { top: 27%; gap: 8px; font-size: clamp(14px, 3.5vw, 20px); }
+  .product-gallery__cart,
+  .product-gallery__volume { bottom: 8.5%; font-size: 10px; }
+  .product-gallery__cart { min-height: 24px; padding: 0 5px; }
+}
+
+@media (max-width: 380px) {
+  .product-gallery__cart,
+  .product-gallery__volume { font-size: 9px; }
 }

@@ -1,41 +1,93 @@
 #composition {
   z-index: 3;
-  height: 2017px;
-  background: #f9f8f7;
-  transform: translate3d(0, 2000px, 0);
+  height: 1757px;
+  background: #fff;
+  transform: translate3d(0, 2950px, 0);
   will-change: transform;
 }
 
 .composition {
   position: relative;
   width: 1920px;
-  height: 2017px;
+  height: 1757px;
   overflow: hidden;
-  background: #f9f8f7;
-  color: #374878;
+  background: #fff;
+  color: #111;
   font-family: "Paperlogy", sans-serif;
   letter-spacing: -0.02em;
 }
+.composition__gallery { position: relative; height: 1307px; }
+.composition__cards { position: absolute; left: 83px; top: 211px; display: grid; grid-template-columns: repeat(3, 564px); gap: 20px; }
+.composition__card { margin: 0; }
+.composition__card-image { position: relative; width: 564px; height: 813px; overflow: hidden; background: #d9d9d9; }
+.composition__card-image img { pointer-events: none; user-select: none; -webkit-user-drag: none; }
+.composition__card-image--mildo img { position: absolute; left: -222px; top: -82px; width: 1008px; height: 953px; max-width: none; }
+.composition__card-image--ohora img { position: absolute; left: -159px; top: -80px; width: 1265px; height: 949px; max-width: none; }
+.composition__card--empty .composition__card-image { background: #e5e5e5; }
+.composition__card h2 { margin: 15px 0 0; font-size: 21px; line-height: 1.4; font-weight: 500; letter-spacing: 0.02em; }
+.composition__card h2 span { display: block; margin-top: 5px; font-weight: 500; }
 
-.composition__heading {
-  position: absolute;
-  top: 99px;
-  left: 83px;
-  margin: 0;
-  font: 600 38px / 1.4 "Paperlogy", sans-serif;
+.composition__footer { position: relative; z-index: 1; height: 450px; overflow: visible; }
+.composition__footer p { position: absolute; z-index: 2; top: 125px; left: 0; width: 100%; margin: 0; color: #ee5144; text-align: center; font: italic 700 40px / 1.4 "Cormorant Infant", serif; letter-spacing: -0.02em; }
+.composition__decor { position: absolute; z-index: 1; inset: 0; pointer-events: none; }
+.composition__decor img { position: absolute; display: block; max-width: none; user-select: none; }
+.composition__decor-green { position: absolute; display: block; background: url("./assets/profile-flower-green.png") center / 116% 116% no-repeat; }
+.composition__decor-pattern { z-index: 0; left: 331.39px; top: 267.49px; width: 492.35px; height: 194.08px; transform: rotate(10.31deg); }
+.composition__decor-left-collage { z-index: 1; left: -132.28px; top: 156.83px; width: 780.75px; height: 390.38px; transform: rotate(6.17deg); }
+.composition__decor-cyan { z-index: 2; left: 1153.82px; top: 362.08px; width: 294px; height: 137px; transform: rotate(-4.4deg); }
+.composition__decor-flower-blue { z-index: 3; left: 205.2px; top: 193px; width: 150.8px; height: 137.54px; transform: rotate(-27.42deg); }
+.composition__decor-grid { z-index: 4; left: 1273.64px; top: 246.12px; width: 311.19px; height: 116.35px; transform: rotate(153.6deg); }
+.composition__decor-apple-right { z-index: 5; left: 1565.48px; top: 136.87px; width: 381.83px; height: 384.94px; transform: rotate(19.59deg); }
+.composition__decor-purple { z-index: 6; left: 1409.78px; top: 271.47px; width: 220px; height: 189.91px; transform: rotate(-15.88deg); }
+.composition__decor-polka { z-index: 7; left: 917.75px; top: 361.39px; width: 315.04px; height: 108.5px; transform: rotate(-157.39deg); }
+.composition__decor-plaid { z-index: 8; left: 1153px; top: 275px; width: 148px; height: 137px; transform: rotate(180deg); }
+.composition__decor-star { z-index: 9; left: 902.51px; top: 291.13px; width: 273.12px; height: 270.28px; transform: rotate(-99.3deg); }
+.composition__decor-spiral { z-index: 10; left: 504px; top: 305px; width: 218px; height: 236px; }
+.composition__decor-green { z-index: 11; left: 783.6px; top: 310.05px; width: 175.41px; height: 164.94px; transform: rotate(-14.25deg); }
+.composition__decor-red-button { z-index: 12; left: 727px; top: 373px; width: 78px; height: 78px; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .composition__footer.is-pending .composition__decor > * {
+    opacity: 0;
+    translate: 0 var(--drop-height, -1300px);
+  }
+
+  .composition__footer.is-revealed .composition__decor > * {
+    animation: decor-fall 1100ms both;
+    animation-delay: var(--fall-delay, 0ms);
+  }
+
+  .composition__decor-pattern { --start-tilt: -7deg; }
+  .composition__decor-left-collage { --start-tilt: 8deg; }
+  .composition__decor-flower-blue { --start-tilt: -14deg; }
+  .composition__decor-spiral { --start-tilt: 12deg; }
+  .composition__decor-red-button { --start-tilt: -18deg; }
+  .composition__decor-green { --start-tilt: 11deg; }
+  .composition__decor-star { --start-tilt: -9deg; }
+  .composition__decor-polka { --start-tilt: 7deg; }
+  .composition__decor-plaid { --start-tilt: -12deg; }
+  .composition__decor-cyan { --start-tilt: 8deg; }
+  .composition__decor-grid { --start-tilt: -8deg; }
+  .composition__decor-purple { --start-tilt: 12deg; }
+  .composition__decor-apple-right { --start-tilt: -10deg; }
+
+  @keyframes decor-fall {
+    0% {
+      opacity: 0;
+      translate: 0 var(--drop-height, -1300px);
+      rotate: var(--start-tilt, -10deg);
+      animation-timing-function: cubic-bezier(.32, 0, .82, .5);
+    }
+    12% { opacity: 1; }
+    58% {
+      opacity: 1;
+      translate: 0 22px;
+      rotate: 4deg;
+      animation-timing-function: cubic-bezier(.18, .72, .3, 1);
+    }
+    73% { translate: 0 -14px; rotate: -3deg; }
+    85% { translate: 0 6px; rotate: 2deg; }
+    94% { translate: 0 -2px; rotate: -1deg; }
+    100% { opacity: 1; translate: 0 0; rotate: 0deg; }
+  }
 }
-
-.composition__project {
-  position: absolute;
-  left: 83px;
-  display: block;
-  width: 1754px;
-  height: 813px;
-  max-width: none;
-  object-fit: cover;
-  pointer-events: none;
-  user-select: none;
-}
-
-.composition__project--mildo { top: 211px; }
-.composition__project--ohora { top: 1054px; }
