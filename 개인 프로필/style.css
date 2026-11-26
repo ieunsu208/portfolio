@@ -47,6 +47,13 @@ body { background: #f4f5f2; }
 .intro__cloud--left { left: -10px; top: 24px; width: 352px; height: 267px; }
 .intro__cloud--right { left: 1588px; top: 78px; width: 332px; height: 377px; }
 .intro__cloud--bottom { left: 124px; top: 572px; width: 456px; height: 334px; }
+.intro__cloud { animation: cloud-float 2.8s ease-in-out infinite; will-change: transform; }
+.intro__cloud--right { animation-duration: 3.3s; animation-delay: -1.1s; }
+.intro__cloud--bottom { animation-duration: 3s; animation-delay: -2s; }
+@keyframes cloud-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-45px); }
+}
 .intro__paper { left: 176px; top: 45px; width: 1460px; height: 890px; }
 .intro__grid { left: 390px; top: 240px; width: 1249px; height: 507px; }
 .intro__button--blue { left: 374px; top: 196px; width: 169px; height: 146px; }
@@ -114,6 +121,13 @@ body { background: #f4f5f2; }
   letter-spacing: -0.02em;
 }
 
+.title .title__char { position: static; display: inline-block; }
+
+/* Entrance: stickers wait off-stage, walk in, then the title letters gather. */
+.thumbnail__canvas.is-waiting .is-walker,
+.thumbnail__canvas.is-waiting .title__char,
+.thumbnail__canvas.is-walking .title__char { visibility: hidden; }
+
 .title__folio {
   left: 925px;
   top: 217px;
@@ -139,8 +153,9 @@ body { background: #f4f5f2; }
   width: 237px;
   height: 290px;
   pointer-events: none;
-  animation: arrow-bob 1s ease-in-out 5;
 }
+
+.arrow-group.is-bobbing { animation: arrow-bob 1s ease-in-out 5; }
 
 .art--arrow { left: 1px; top: 107px; width: 172px; height: 183px; }
 .art--accent-rays { left: 83px; top: 54px; width: 155px; height: 165px; }
@@ -150,6 +165,19 @@ body { background: #f4f5f2; }
   50% { transform: translateY(-20px); }
 }
 
+/* SKIP: the thumbnail appears small over the intro and grows to fill the screen. */
+#thumbnail.is-expanding { background: transparent; }
+#thumbnail.is-expanding .thumbnail {
+  transform-origin: 50% 50%;
+  animation: thumbnail-expand 1.1s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+@keyframes thumbnail-expand {
+  0% { transform: scale(0.2); opacity: 0; border-radius: 40px; box-shadow: 0 30px 80px rgb(0 0 0 / 0.25); }
+  20% { opacity: 1; }
+  100% { transform: scale(1); opacity: 1; border-radius: 0; box-shadow: 0 0 0 rgb(0 0 0 / 0); }
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .arrow-group { animation: none; }
+  .arrow-group.is-bobbing { animation: none; }
+  .intro__cloud { animation: none; }
 }
